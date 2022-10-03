@@ -8,12 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var input: String = ""
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Form {
+                Section("Feedback") {
+                    TextField("Please provide your name", text: $input, axis: .vertical)
+                        .lineLimit(3)
+                }
+            }
+            Form {
+                Section("Feedback") {
+                    TextField("Please provide your name", text: $input, axis: .vertical)
+                        .lineLimit(3...5)
+                }
+            }
+            Form {
+                Section("Feedback") {
+                    TextField("Please provide your name", text: $input, axis: .horizontal)
+                }
+            }
         }
         .padding()
     }
